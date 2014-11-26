@@ -6,5 +6,10 @@
         <%= resposta.texto %><br>
         <% i += 1 %>
     <% end %>
+    <% if pergunta.prova %>
+        <%= link_to 'TIRAR!', '/desmarcar/'+pergunta.id.to_s, {remote: true, class: "btn btn-primary btn-sm"} %>
+    <% else %>
+        <%= link_to 'COLOCAR!', '/marcar/'+pergunta.id.to_s, {remote: true, class: "btn btn-primary btn-sm"} %>
+    <% end %>
     <hr>
 <% end %>

@@ -9,8 +9,16 @@ class HomeController < ApplicationController
 
   def marcar
     @pergunta = Question.find(params[:id])
-    @pergunta.prova = @pergunta.prova == true ? false : true
+    @pergunta.prova = true
     @pergunta.save
+    redirect_to "/prova"
+  end
+
+  def desmarcar
+    @pergunta = Question.find(params[:id])
+    @pergunta.prova = false
+    @pergunta.save
+    redirect_to "/prova"
   end
 
 end

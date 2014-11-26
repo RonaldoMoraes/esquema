@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/prova', to: 'home#prova'
-
+  get 'marcar/:id', to: 'home#marcar'
   get 'home/index'
 
   resources :questions

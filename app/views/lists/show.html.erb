@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<p style="text-align: center">
+<%= link_to "Criar Pergunta", new_question_path, class: "btn btn-default btn-lg" %>
+</p>
+<table class="table table-responsive table-bordered">
+  <thead>
+  <tr>
+    <th>Numero</th>
+    <th>Pergunta</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @perguntas.each do |pergunta| %>
+      <tr>
+        <td><%= pergunta.numero %></td>
+        <td><%= pergunta.pergunta %></td>
+        <td><%= link_to 'Editar Pergunta', edit_question_path(pergunta) %></td>
+        <td><%#= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+
+            <% pergunta.answers.each do |resposta| %>
+              <tr>
+                <td><b>Resposta:</b></td>
+                  <td colspan="3">
+                    <%= resposta.texto%>
+                  </td>
+              </tr>
+            <% end %>
+
+
+        <tr>
+          <td colspan="4">
+              <%= form_for(@answer) do |f| %>
+
+                  <%= f.text_area :texto, style: "width: 80%;" %>
+
+                  <%= f.hidden_field :question_id, :value => pergunta.id %>
+
+                  <%= f.submit class: "btn btn-success btn-sm"%>
+              <% end %>
+          </td>
+</tr>
+
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,10 @@
+<% @perguntas.each do |pergunta| %>
+    <b><%= pergunta.pergunta %></b><br>
+   <% i = 1 %>
+    <% pergunta.answers.each do |resposta| %>
+        <b><%= i %> - </b>
+        <%= resposta.texto %><br>
+        <% i += 1 %>
+    <% end %>
+    <hr>
+<% end %>

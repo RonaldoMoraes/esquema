@@ -43,7 +43,13 @@
                 <td><b>Resposta:</b></td>
                   <td colspan="3">
                     <%= resposta.texto%>
-                  </td>
+                    <br>
+                    <%= debug resposta%>
+                        <% if resposta.imagem != '' %>
+                        0909090909090
+                            <img src="<%= resposta.imagem %>"/>
+                        <% end %>
+                    </td>
               </tr>
             <% end %>
 
@@ -52,10 +58,10 @@
           <td colspan="4">
               <%= form_for(@answer) do |f| %>
 
-                  <%= f.text_area :texto, style: "width: 80%;" %>
-
+                  <%= f.text_area :texto, style: "width: 70%;" %><br>
+                  <b>Caminho da imagem</b>: <%= f.text_field :imagem, placeholder: "http://se.tiver/imagem.png"%>
                   <%= f.hidden_field :question_id, :value => pergunta.id %>
-
+                  <br>
                   <%= f.submit "Reponder", class: "btn btn-success btn-sm"%>
               <% end %>
           </td>

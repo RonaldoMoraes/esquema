@@ -21,4 +21,8 @@ class HomeController < ApplicationController
     redirect_to "/prova"
   end
 
+  def pdf
+
+  end
+
 end

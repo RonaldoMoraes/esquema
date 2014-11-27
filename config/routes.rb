@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/pdf', to: 'home#pdf'
   get '/prova', to: 'home#prova'
   get '/marcar/:id', to: 'home#marcar'
   get '/desmarcar/:id', to: 'home#desmarcar'
